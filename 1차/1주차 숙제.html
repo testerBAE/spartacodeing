@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디스 이즈 스파르타~!!</title>
+    <style>
+        body{
+            background-color: rgb(213, 216, 45);
+            color: black;
+
+        }
+        .mytitle {
+            color:chartreuse;
+            width: 800px;
+            height: 400px;
+            background-image: url(https://i1.wp.com/original-answer.com/wp-content/uploads/2020/03/실버판테온2.png);
+            background-position: center;
+            background-size: cover;
+
+            border-radius: 10px;
+            text-align: center;
+            padding-top: 30px;
+        }
+        .wrap {
+            margin: 10px auto;
+            width: 800px;
+        }
+    </style>
+    <script>
+        function buy() {
+            alert("주문이 완료되었습니다.!");
+        }
+    </script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="mytitle"><h1>음원구매</h1></div>
+    </div>
+    <hr>
+    <h1>실버판태온-장범준 음원</h1> 가격 3000원/개
+    현재 실버인 장범준이 플레티넘을 가고 싶은 염원을 담긴 노래
+    빌보드 차트 10위 입성!!
+
+    <h3>주문하기</h3>
+
+
+    <div>
+        <p>
+            주문자 성함 : <input type="text"/>
+        </p>
+        <p>
+            수량 : <input type="number" name=:"수량" min="1" max="5"/>
+        </p>
+        <p>
+            주소 : <input type="text"/>
+        </p>
+        <p>
+            전화번호 : <input type="text"/>
+        </p>
+    </div>
+    <button onclick="buy()" type="button" class="btn btn-primary">주문하기</button>
+</body>
+</html>
