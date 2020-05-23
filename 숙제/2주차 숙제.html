@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디스 이즈 스파르타~!!</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: rgb(213, 216, 45);
+            color: black;
+
+        }
+
+        .mytitle {
+            color: chartreuse;
+            width: 800px;
+            height: 400px;
+            background-image: url(https://i1.wp.com/original-answer.com/wp-content/uploads/2020/03/실버판테온2.png);
+            background-position: center;
+            background-size: cover;
+
+            border-radius: 10px;
+            text-align: center;
+            padding-top: 30px;
+        }
+
+        .wrap {
+            margin: 10px auto;
+            width: 800px;
+        }
+        .text {
+            color: red;
+        }
+    </style>
+    <script>
+        function buy() {
+
+            if ($('#input-name').val() == "") {
+                alert("이름을 입력해주세요");
+            } else if ($('#input-number').val() == "") {
+                alert("수량을 입력해주세요");
+            } else if ($('#input-addr').val() == "") {
+                alert("주소를 입력해주세요");
+            } else if ($('#input-phonenum').val() == "") {
+                alert("전화번호를 입력해주세요");
+            } else {
+                alert("구매하였습니다.");
+            }
+
+        }
+
+        $(document).ready(function () {
+            //alert('다 로딩됐다!');
+            $.ajax({
+                type: "GET",
+                url: "https://api.manana.kr/exchange/rate.json",
+                data: {},
+                success: function (response) {
+                    let rate = response;
+                    for (let i = 0; i < rate.length; i++) {
+                        //alert(rate[i]["name"]);
+                        if (rate[i]["name"] == "USDKRW=X") {
+                            let temp_html = rate[i]["rate"]
+                            //alert(temp_html);
+                            $('#money').append(temp_html);
+                        }
+                    }
+                }
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrap">
+        <div class="mytitle">
+            <h1>음원구매</h1>
+        </div>
+    </div>
+    <hr>
+    <h1>실버판태온-장범준 음원</h1> 가격 3000원/개
+    현재 실버인 장범준이 플레티넘을 가고 싶은 염원을 담긴 노래
+    빌보드 차트 10위 입성!!
+
+    <h3>주문하기</h3>
+    
+    <div class="text">
+        달러 환율 : <h id="money"></h>
+    </div>
+
+    <div>
+        <p>
+            주문자 성함 : <input id="input-name" type="text" />
+        </p>
+        <p>
+            수량 : <input id="input-number" type="number" name=:"수량" min="1" max="5" />
+        </p>
+        <p>
+            주소 : <input id="input-addr" type="text" />
+        </p>
+        <p>
+            전화번호 : <input id="input-phonenum" type="text" />
+        </p>
+    </div>
+    <button onclick="buy()" type="button" class="btn btn-primary">주문하기</button>
+</body>
+
+</html>
